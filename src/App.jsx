@@ -63,31 +63,31 @@ function StatusBadge({ checked }) {
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: 4,
-        padding: "2px 10px",
+        gap: 5,
+        padding: "4px 14px",
         borderRadius: 999,
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: 600,
         background: checked ? "#DCFCE7" : "#FEE2E2",
         color: checked ? "#166534" : "#991B1B",
       }}
     >
-      <span style={{ fontSize: 10 }}>{checked ? "●" : "○"}</span>
+      <span style={{ fontSize: 12 }}>{checked ? "●" : "○"}</span>
       {checked ? "참석" : "미참석"}
     </span>
   );
 }
 
 function TableBadge({ table }) {
-  if (!table) return <span style={{ color: "#9CA3AF", fontSize: 12 }}>미배정</span>;
+  if (!table) return <span style={{ color: "#9CA3AF", fontSize: 14 }}>미배정</span>;
   const cfg = TABLE_CONFIG[table];
   return (
     <span
       style={{
         display: "inline-block",
-        padding: "2px 10px",
+        padding: "4px 14px",
         borderRadius: 999,
-        fontSize: 12,
+        fontSize: 14,
         fontWeight: 600,
         background: cfg.color + "18",
         color: cfg.color,
@@ -117,25 +117,25 @@ function SeatMap({ guests, onSeatClick, selectedTable }) {
   });
 
   return (
-    <div style={{ background: "#FAFBFC", borderRadius: 16, padding: "16px 8px", border: "1px solid #E5E7EB" }}>
-      <div style={{ textAlign: "center", marginBottom: 8 }}>
+    <div style={{ background: "#FAFBFC", borderRadius: 16, padding: "20px 12px", border: "1px solid #E5E7EB" }}>
+      <div style={{ textAlign: "center", marginBottom: 12 }}>
         <div
           style={{
             display: "inline-block",
             background: "linear-gradient(135deg, #1E293B, #334155)",
             color: "#fff",
-            padding: "6px 48px",
-            borderRadius: "8px 8px 0 0",
-            fontSize: 14,
+            padding: "10px 60px",
+            borderRadius: "10px 10px 0 0",
+            fontSize: 17,
             fontWeight: 700,
-            letterSpacing: 6,
+            letterSpacing: 8,
           }}
         >
           무 대
         </div>
         <div style={{ height: 3, background: "linear-gradient(90deg, transparent, #1E293B, transparent)", margin: "0 40px" }} />
       </div>
-      <svg viewBox="0 0 800 400" style={{ width: "100%", maxHeight: 360 }}>
+      <svg viewBox="0 0 800 400" style={{ width: "100%", maxHeight: 420 }}>
         {tablePositions.map((tp) => {
           const isVIP = tp.id === 3;
           const isSelected = selectedTable === tp.id;
@@ -228,17 +228,17 @@ function SeatMap({ guests, onSeatClick, selectedTable }) {
           );
         })}
       </svg>
-      <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 8, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: 20, marginTop: 12, flexWrap: "wrap" }}>
         {[
           { color: "#10B981", bg: "#10B98120", label: "참석 확인" },
           { color: "#6B7280", bg: "#FFF", label: "미참석", border: true },
           { color: "#9CA3AF", bg: "#F3F4F6", label: "빈 좌석" },
         ].map((l) => (
-          <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: "#6B7280" }}>
+          <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "#6B7280" }}>
             <div
               style={{
-                width: 12,
-                height: 12,
+                width: 14,
+                height: 14,
                 borderRadius: "50%",
                 background: l.bg,
                 border: `1.5px solid ${l.border ? "#6B728060" : l.color}`,
@@ -257,19 +257,19 @@ function StatCard({ icon, label, value, sub, color }) {
     <div
       style={{
         background: "#fff",
-        borderRadius: 12,
-        padding: "14px 16px",
+        borderRadius: 14,
+        padding: "18px 20px",
         border: "1px solid #E5E7EB",
         flex: "1 1 0",
-        minWidth: 130,
+        minWidth: 180,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-        <span style={{ fontSize: 20 }}>{icon}</span>
-        <span style={{ fontSize: 12, color: "#6B7280", fontWeight: 500 }}>{label}</span>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+        <span style={{ fontSize: 24 }}>{icon}</span>
+        <span style={{ fontSize: 15, color: "#6B7280", fontWeight: 500 }}>{label}</span>
       </div>
-      <div style={{ fontSize: 28, fontWeight: 800, color: color || "#111827", lineHeight: 1 }}>{value}</div>
-      {sub && <div style={{ fontSize: 11, color: "#9CA3AF", marginTop: 4 }}>{sub}</div>}
+      <div style={{ fontSize: 34, fontWeight: 800, color: color || "#111827", lineHeight: 1 }}>{value}</div>
+      {sub && <div style={{ fontSize: 14, color: "#9CA3AF", marginTop: 6 }}>{sub}</div>}
     </div>
   );
 }
@@ -341,13 +341,13 @@ export default function GuestManagement() {
   };
 
   return (
-    <div style={{ fontFamily: "'Pretendard', 'Apple SD Gothic Neo', sans-serif", background: "#F8F9FB", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', sans-serif", background: "#F8F9FB", minHeight: "100vh" }}>
       {/* Header */}
       <div
         style={{
           background: "linear-gradient(135deg, #1E293B 0%, #334155 100%)",
           color: "#fff",
-          padding: "18px 24px",
+          padding: "20px 28px",
           position: "sticky",
           top: 0,
           zIndex: 100,
@@ -355,21 +355,21 @@ export default function GuestManagement() {
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1100, margin: "0 auto" }}>
           <div>
-            <h1 style={{ margin: 0, fontSize: 20, fontWeight: 800, letterSpacing: -0.5 }}>🎤 내빈 관리 시스템</h1>
-            <p style={{ margin: "2px 0 0", fontSize: 12, opacity: 0.7 }}>서울시사회복지사협회</p>
+            <h1 style={{ margin: 0, fontSize: 24, fontWeight: 800, letterSpacing: -0.5 }}>🎤 내빈 관리 시스템</h1>
+            <p style={{ margin: "4px 0 0", fontSize: 14, opacity: 0.7 }}>서울시사회복지사협회</p>
           </div>
-          <div style={{ display: "flex", gap: 4, background: "rgba(255,255,255,0.1)", borderRadius: 8, padding: 3 }}>
+          <div style={{ display: "flex", gap: 4, background: "rgba(255,255,255,0.1)", borderRadius: 10, padding: 4 }}>
             {["dashboard", "list"].map((v) => (
               <button
                 key={v}
                 onClick={() => setView(v)}
                 style={{
-                  padding: "6px 16px",
-                  borderRadius: 6,
+                  padding: "10px 22px",
+                  borderRadius: 8,
                   border: "none",
                   background: view === v ? "#fff" : "transparent",
                   color: view === v ? "#1E293B" : "#fff",
-                  fontSize: 13,
+                  fontSize: 15,
                   fontWeight: 600,
                   cursor: "pointer",
                   transition: "all 0.2s",
@@ -382,9 +382,9 @@ export default function GuestManagement() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "16px 16px 80px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 20px 80px" }}>
         {/* Stats */}
-        <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 14, marginBottom: 20, flexWrap: "wrap" }}>
           <StatCard icon="👥" label="전체 내빈" value={stats.total} sub="명" color="#1E293B" />
           <StatCard
             icon="✅"
@@ -412,23 +412,23 @@ export default function GuestManagement() {
             {selectedTable && (
               <div
                 style={{
-                  marginTop: 16,
+                  marginTop: 20,
                   background: "#fff",
-                  borderRadius: 12,
+                  borderRadius: 14,
                   border: `2px solid ${TABLE_CONFIG[selectedTable].color}30`,
-                  padding: 16,
+                  padding: 20,
                   animation: "fadeIn 0.2s ease",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
-                  <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: TABLE_CONFIG[selectedTable].color }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, color: TABLE_CONFIG[selectedTable].color }}>
                     {TABLE_CONFIG[selectedTable].label} 상세
                   </h3>
-                  <span style={{ fontSize: 12, color: "#6B7280" }}>
+                  <span style={{ fontSize: 15, color: "#6B7280" }}>
                     {stats.byTable[selectedTable].checked}/{stats.byTable[selectedTable].total}명 참석
                   </span>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 8 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 10 }}>
                   {guests
                     .filter((g) => g.table === selectedTable)
                     .sort((a, b) => a.seat - b.seat)
@@ -439,9 +439,9 @@ export default function GuestManagement() {
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: 10,
-                          padding: "10px 12px",
-                          borderRadius: 8,
+                          gap: 12,
+                          padding: "14px 16px",
+                          borderRadius: 10,
                           background: g.checked ? "#F0FDF4" : "#FAFAFA",
                           border: `1px solid ${g.checked ? "#BBF7D0" : "#E5E7EB"}`,
                           cursor: "pointer",
@@ -450,13 +450,13 @@ export default function GuestManagement() {
                       >
                         <div
                           style={{
-                            width: 28,
-                            height: 28,
+                            width: 36,
+                            height: 36,
                             borderRadius: "50%",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            fontSize: 11,
+                            fontSize: 14,
                             fontWeight: 700,
                             background: g.checked ? TABLE_CONFIG[selectedTable].color : "#E5E7EB",
                             color: g.checked ? "#fff" : "#6B7280",
@@ -466,12 +466,12 @@ export default function GuestManagement() {
                           {g.seat}
                         </div>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "#111827" }}>{g.name}</div>
-                          <div style={{ fontSize: 11, color: "#6B7280", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          <div style={{ fontSize: 16, fontWeight: 700, color: "#111827" }}>{g.name}</div>
+                          <div style={{ fontSize: 13, color: "#6B7280", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                             {g.role}
                           </div>
                         </div>
-                        <div style={{ fontSize: 16 }}>{g.checked ? "✅" : "⬜"}</div>
+                        <div style={{ fontSize: 22 }}>{g.checked ? "✅" : "⬜"}</div>
                       </div>
                     ))}
                   {/* Empty seats */}
@@ -481,22 +481,22 @@ export default function GuestManagement() {
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: 10,
-                        padding: "10px 12px",
-                        borderRadius: 8,
+                        gap: 12,
+                        padding: "14px 16px",
+                        borderRadius: 10,
                         background: "#FAFAFA",
                         border: "1px dashed #D1D5DB",
                       }}
                     >
                       <div
                         style={{
-                          width: 28,
-                          height: 28,
+                          width: 36,
+                          height: 36,
                           borderRadius: "50%",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontSize: 11,
+                          fontSize: 14,
                           fontWeight: 700,
                           background: "#F3F4F6",
                           color: "#9CA3AF",
@@ -505,7 +505,7 @@ export default function GuestManagement() {
                       >
                         {s}
                       </div>
-                      <div style={{ fontSize: 12, color: "#9CA3AF" }}>빈 좌석</div>
+                      <div style={{ fontSize: 14, color: "#9CA3AF" }}>빈 좌석</div>
                     </div>
                   ))}
                 </div>
@@ -513,7 +513,7 @@ export default function GuestManagement() {
             )}
 
             {/* Per-table progress */}
-            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 8 }}>
+            <div style={{ marginTop: 20, display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 10 }}>
               {[1, 2, 3, 4, 5].map((t) => {
                 const cfg = TABLE_CONFIG[t];
                 const tb = stats.byTable[t];
@@ -524,24 +524,24 @@ export default function GuestManagement() {
                     onClick={() => setSelectedTable(selectedTable === t ? null : t)}
                     style={{
                       background: "#fff",
-                      borderRadius: 10,
-                      padding: "12px 10px",
+                      borderRadius: 12,
+                      padding: "16px 14px",
                       border: `1px solid ${selectedTable === t ? cfg.color : "#E5E7EB"}`,
                       cursor: "pointer",
                       textAlign: "center",
                       transition: "all 0.15s",
                     }}
                   >
-                    <div style={{ fontSize: 12, fontWeight: 700, color: cfg.color, marginBottom: 4 }}>{cfg.label}</div>
-                    <div style={{ fontSize: 20, fontWeight: 800, color: "#111827" }}>
-                      {tb.checked}<span style={{ fontSize: 12, color: "#9CA3AF" }}>/{tb.total}</span>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: cfg.color, marginBottom: 6 }}>{cfg.label}</div>
+                    <div style={{ fontSize: 24, fontWeight: 800, color: "#111827" }}>
+                      {tb.checked}<span style={{ fontSize: 14, color: "#9CA3AF" }}>/{tb.total}</span>
                     </div>
                     <div
                       style={{
-                        height: 4,
-                        borderRadius: 2,
+                        height: 6,
+                        borderRadius: 3,
                         background: "#F3F4F6",
-                        marginTop: 6,
+                        marginTop: 8,
                         overflow: "hidden",
                       }}
                     >
@@ -549,7 +549,7 @@ export default function GuestManagement() {
                         style={{
                           width: `${pct}%`,
                           height: "100%",
-                          borderRadius: 2,
+                          borderRadius: 3,
                           background: cfg.color,
                           transition: "width 0.3s ease",
                         }}
@@ -568,28 +568,28 @@ export default function GuestManagement() {
             <div
               style={{
                 background: "#fff",
-                borderRadius: 12,
-                padding: 12,
+                borderRadius: 14,
+                padding: 16,
                 border: "1px solid #E5E7EB",
-                marginBottom: 12,
+                marginBottom: 16,
                 display: "flex",
-                gap: 8,
+                gap: 10,
                 flexWrap: "wrap",
                 alignItems: "center",
               }}
             >
-              <div style={{ position: "relative", flex: "1 1 200px" }}>
-                <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14 }}>🔍</span>
+              <div style={{ position: "relative", flex: "1 1 240px" }}>
+                <span style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", fontSize: 18 }}>🔍</span>
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="이름, 소속, 직함 검색..."
                   style={{
                     width: "100%",
-                    padding: "8px 8px 8px 32px",
+                    padding: "12px 12px 12px 40px",
                     border: "1px solid #E5E7EB",
-                    borderRadius: 8,
-                    fontSize: 13,
+                    borderRadius: 10,
+                    fontSize: 15,
                     outline: "none",
                     boxSizing: "border-box",
                   }}
@@ -598,7 +598,7 @@ export default function GuestManagement() {
               <select
                 value={filterTable}
                 onChange={(e) => setFilterTable(Number(e.target.value))}
-                style={{ padding: "8px 12px", border: "1px solid #E5E7EB", borderRadius: 8, fontSize: 13, background: "#fff" }}
+                style={{ padding: "12px 16px", border: "1px solid #E5E7EB", borderRadius: 10, fontSize: 15, background: "#fff", minHeight: 48 }}
               >
                 <option value={0}>전체 테이블</option>
                 {[1, 2, 3, 4, 5].map((t) => (
@@ -610,44 +610,45 @@ export default function GuestManagement() {
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
-                style={{ padding: "8px 12px", border: "1px solid #E5E7EB", borderRadius: 8, fontSize: 13, background: "#fff" }}
+                style={{ padding: "12px 16px", border: "1px solid #E5E7EB", borderRadius: 10, fontSize: 15, background: "#fff", minHeight: 48 }}
               >
                 <option value="all">전체 상태</option>
                 <option value="checked">참석</option>
                 <option value="unchecked">미참석</option>
               </select>
-              <div style={{ fontSize: 12, color: "#6B7280", marginLeft: 4 }}>
+              <div style={{ fontSize: 14, color: "#6B7280", marginLeft: 4 }}>
                 {filtered.length}명 표시
               </div>
             </div>
 
             {/* Guest List */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {filtered.map((g) => (
                 <div
                   key={g.id}
                   style={{
                     background: "#fff",
-                    borderRadius: 10,
-                    padding: "12px 16px",
+                    borderRadius: 12,
+                    padding: "16px 20px",
                     border: `1px solid ${g.checked ? "#BBF7D0" : "#E5E7EB"}`,
                     display: "flex",
                     alignItems: "center",
-                    gap: 12,
+                    gap: 14,
                     transition: "all 0.15s",
+                    position: "relative",
                   }}
                 >
                   {/* Check button */}
                   <button
                     onClick={() => toggleCheck(g.id)}
                     style={{
-                      width: 36,
-                      height: 36,
+                      width: 48,
+                      height: 48,
                       borderRadius: "50%",
                       border: `2px solid ${g.checked ? "#16A34A" : "#D1D5DB"}`,
                       background: g.checked ? "#16A34A" : "#fff",
                       color: g.checked ? "#fff" : "#D1D5DB",
-                      fontSize: 16,
+                      fontSize: 20,
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
@@ -661,11 +662,11 @@ export default function GuestManagement() {
 
                   {/* Info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
-                      <span style={{ fontSize: 15, fontWeight: 700, color: "#111827" }}>{g.name}</span>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+                      <span style={{ fontSize: 18, fontWeight: 700, color: "#111827" }}>{g.name}</span>
                       <StatusBadge checked={g.checked} />
                     </div>
-                    <div style={{ fontSize: 12, color: "#6B7280" }}>
+                    <div style={{ fontSize: 14, color: "#6B7280" }}>
                       {g.org !== "-" ? g.org : ""} {g.role}
                     </div>
                   </div>
@@ -677,13 +678,13 @@ export default function GuestManagement() {
                   <button
                     onClick={() => setEditingGuest(editingGuest === g.id ? null : g.id)}
                     style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 8,
+                      width: 44,
+                      height: 44,
+                      borderRadius: 10,
                       border: "1px solid #E5E7EB",
                       background: editingGuest === g.id ? "#F3F4F6" : "#fff",
                       cursor: "pointer",
-                      fontSize: 14,
+                      fontSize: 18,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -699,38 +700,40 @@ export default function GuestManagement() {
                     <div
                       style={{
                         position: "absolute",
-                        right: 60,
+                        top: "100%",
+                        right: 0,
+                        marginTop: 4,
                         background: "#fff",
-                        borderRadius: 12,
-                        boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
-                        padding: 16,
+                        borderRadius: 14,
+                        boxShadow: "0 8px 30px rgba(0,0,0,0.15)",
+                        padding: 20,
                         zIndex: 50,
                         border: "1px solid #E5E7EB",
-                        minWidth: 240,
+                        minWidth: 300,
                       }}
                     >
-                      <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 10 }}>좌석 변경 - {g.name}</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>좌석 변경 - {g.name}</div>
                       {[1, 2, 3, 4, 5].map((t) => {
                         const avail = getAvailableSeats(t);
                         if (g.table === t) avail.push(g.seat);
                         avail.sort((a, b) => a - b);
                         return (
-                          <div key={t} style={{ marginBottom: 8 }}>
-                            <div style={{ fontSize: 11, fontWeight: 600, color: TABLE_CONFIG[t].color, marginBottom: 4 }}>
+                          <div key={t} style={{ marginBottom: 12 }}>
+                            <div style={{ fontSize: 13, fontWeight: 600, color: TABLE_CONFIG[t].color, marginBottom: 6 }}>
                               {TABLE_CONFIG[t].label} ({avail.length}석 가능)
                             </div>
-                            <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                               {avail.map((s) => (
                                 <button
                                   key={s}
                                   onClick={() => updateGuestTable(g.id, t, s)}
                                   style={{
-                                    width: 28,
-                                    height: 28,
-                                    borderRadius: 6,
+                                    width: 40,
+                                    height: 40,
+                                    borderRadius: 8,
                                     border: g.table === t && g.seat === s ? `2px solid ${TABLE_CONFIG[t].color}` : "1px solid #E5E7EB",
                                     background: g.table === t && g.seat === s ? TABLE_CONFIG[t].color + "15" : "#fff",
-                                    fontSize: 11,
+                                    fontSize: 14,
                                     fontWeight: 600,
                                     cursor: "pointer",
                                     color: "#374151",
@@ -757,14 +760,14 @@ export default function GuestManagement() {
         <div
           style={{
             position: "fixed",
-            bottom: 24,
+            bottom: 32,
             left: "50%",
             transform: "translateX(-50%)",
             background: "#1E293B",
             color: "#fff",
-            padding: "10px 24px",
-            borderRadius: 10,
-            fontSize: 14,
+            padding: "14px 32px",
+            borderRadius: 12,
+            fontSize: 16,
             fontWeight: 600,
             boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
             zIndex: 999,
@@ -781,7 +784,13 @@ export default function GuestManagement() {
           to { opacity: 1; transform: translateY(0); }
         }
         * { box-sizing: border-box; }
+        button:active { transform: scale(0.97); }
         button:hover { opacity: 0.85; }
+        @media (max-width: 600px) {
+          .table-progress-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
       `}</style>
     </div>
   );
